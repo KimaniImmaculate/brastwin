@@ -39,3 +39,27 @@ main{
     background: #f5e8c7;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.accent{
+    color: #8b5e3c;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+button{
+    background-color: #8b5e3c;
+    color: #f5e8c7;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover{
+    background-color: #6b4f30;
+}
+section{
+    margin: 20px 0;
+}
+section h2{
+    color: #4b2e2e;
+    margin-bottom: 5px;
+}
