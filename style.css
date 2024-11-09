@@ -3,7 +3,6 @@
     padding:0;
     box-sizing: border-box;
 }
-
 body{
    font-family: Arial, Helvetica, sans-serif;
    line-height: 1.6;
@@ -11,7 +10,6 @@ body{
    color: #4b2e2e;
    margin:0;
 }
-
 header,footer {
     background-color: #4b2e2e;
     color: #f5e8c7;
@@ -44,16 +42,18 @@ main{
     font-weight: bold;
     margin-bottom: 5px;
 }
-button{
+.button{
     background-color: #8b5e3c;
     color: #f5e8c7;
     padding: 10px 20px;
-    border: none;
+    border: 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
 }
-button:hover{
+.button:hover{
     background-color: #6b4f30;
 }
 section{
@@ -82,4 +82,42 @@ img{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding-left: 0;
+}
+form{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+main h1{
+    text-align: center;
+    color: #8b5e3b;
+}
+form label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+form input, form select, form textarea{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+form button{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #8b5e3b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form button:hover{
+    background-color: #70492d;
 }
