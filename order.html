@@ -20,12 +20,17 @@
     </header>
     <main>
         <h1>Place an Order</h1>
-        <form id="order form">
+
+        <div id="success-message" class="hidden">
+            <p>Thank you for your order ! We will process it shortly.</p>
+        </div>
+
+        <form id="order-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="phone number">Phone number:</label>
-            <input type="number" id="phone number" name="phone number" required>
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" required>
 
             <label for="product">Product:</label>
             <select id="product" name="product" required>
@@ -36,7 +41,7 @@
             </select>
 
             <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quatity" min="1" required>
+            <input type="number" id="quantity" name="quantity" min="1" required>
 
             <label for="notes">Additional notes:</label>
             <textarea id="notes" name="notes" placeholder="Any specific requirements?"></textarea>
@@ -46,7 +51,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Brastwin. All rigts reserved.</p>
+        <p>&copy; 2024 Brastwin. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
