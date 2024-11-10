@@ -66,6 +66,7 @@ main{
     margin-top: 20px;
     text-decoration: none;
     display: inline-block;
+    width: auto;
 }
 .button:hover{
     background-color: #6b4f30;
@@ -86,6 +87,7 @@ img{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: max-content;
     height: fit-content;
+    align-items: center;
 }
 .small-img{
     width: 100%;
@@ -152,4 +154,55 @@ form button:hover{
     margin: 20px auto;
     width:80%;
     max-width: 500px;
+}
+#product-list{
+    display: block;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+
+}
+.product-card{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product-card img{
+    width: 100%;
+    height:auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    display: block;
+    justify-content: center;
+}
+.product-card h3{
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+}
+.product-card p{
+    font-size: 1em;
+    color: #555;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+@media (max-width: 768px){
+    .product-card{
+        width: 45%;
+    }
+}
+@media (max-width: 480px){
+    .product-card{
+        width: 100%;
+    }
 }
