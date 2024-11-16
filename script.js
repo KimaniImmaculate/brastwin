@@ -36,8 +36,9 @@ const products=[
 
 function displayProducts(){
     const productList = document.getElementById("product-list")
+    productList.innerHTML="";
 
-    products.forEach(product => {
+    products.forEach((product, index)=> {
         //Product card container 
         const productCard =document.createElement("div");
         productCard.classList.className = "product-card";
@@ -64,6 +65,9 @@ function displayProducts(){
         description.innerText = product.description;
         productCard.appendChild(description);
 
+        //Add click event to open modal with product details
+        productCard.addEventListener("click", () => openModal(index));
+
         //Append product card to the product list
         productList.appendChild(productCard);
     });
@@ -71,4 +75,55 @@ function displayProducts(){
 
 displayProducts();
 
+});
+
+const productModal= document.getElementById("product-modal");
+const modalClose=document.getElementById("modal-close");
+
+function openModal(index){
+    //Get product details 
+    const product= products[index];
+
+    //Populate modal with product details 
+    document.getElementById("modal-image").src=product.image;
+    document.getElementById("modal-image").alt=product.image;
+    document.getElementById("modal-name").innerText=product.name;
+    document.getElementById("modal-price").innerText=`Price: $${product.price}`;
+    document.getElementById("modal-description").innerText=product.description;
+
+    //Show the modal 
+    document.getElementById("product-modal").style.display="flex";
+}
+
+function closeModal() {
+    document.getElementById("product-modal").style.display="none"
+}
+
+//Close modal when clicking the close button
+document.getElementById("modal-close").addEventListener("click", closeModal);
+
+//Close modal when clicking outside the modal content 
+window.addEventListener("click" , (event)=> {
+    if (event.target===productModal) {
+        closeModal();
+    }
+});
+
+document.getElementById("orderForm").addEventListener("submit", function (e) {
+    e.preventDefault() //Prevent form submission for testing
+
+    const quantity= document.getElementById("quantity").ariaValueMax;
+    const email= document.getElementById("email").ariaValueMax;
+
+    if(quantity <1){
+        alert("Please enter a quantity of at least 1.");
+        return;
+    }
+    
+    if(!email.includes("@")){
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    alert("Order submitted successfully!");
 });
