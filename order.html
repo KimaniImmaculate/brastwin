@@ -27,27 +27,29 @@
 
         <form id="order-form">
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your name">
+            <input type="text" id="name" name="name" placeholder="Your name" required>
 
             <label for="phone">Phone number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
 
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Your email">
+            <input type="email" id="email" name="email" placeholder="Your email" required>
 
             <label for="product">Product:</label>
             <select id="product" name="product" required>
-                <option value="">Select a Product</option>
-                <option value="timber">Timber</option>
-                <option value="beams">Beams</option>
-                <option value="furniture">Furniture</option>
+                <option value="">Select a product</option>
+                <option value="timber">Timber- $20</option>
+                <option value="beams">Beams- $18</option>
+                <option value="furniture">Furniture- $12</option>
             </select>
 
             <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" min="1" required>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
 
             <label for="notes">Additional notes:</label>
             <textarea id="notes" name="notes" placeholder="Any specific requirements?"></textarea>
+
+            <p>Total Cost: $<span id="totalCost">0</span></p>
 
             <button type="submit">Submit Order</button>
         </form>
@@ -57,6 +59,6 @@
         <p>&copy; 2024 Brastwin. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" ></script>
 </body>
 </html>

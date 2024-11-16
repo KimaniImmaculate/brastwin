@@ -1,5 +1,4 @@
-console.log("Script is running");
-
+console.log("JS");
 document.getElementById("order-form").addEventListener("submit", function(event)
 {
     event.preventDefault();
@@ -11,6 +10,7 @@ document.getElementById("success-message").classList.remove("hidden");
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("Script is running");
 
 //Add products
 const products=[
@@ -35,13 +35,18 @@ const products=[
 ];
 
 function displayProducts(){
-    const productList = document.getElementById("product-list")
+    const productList = document.getElementById("product-list");
+
+    if(!productList){
+        console.error("Element with ID 'product-list' not found in the DOM");
+        return;
+    }
     productList.innerHTML="";
 
-    products.forEach((product, index)=> {
+    products.forEach((product)=> {
         //Product card container 
         const productCard =document.createElement("div");
-        productCard.classList.className = "product-card";
+        productCard.classList.add ("product-card");
 
         //Add image
         const img = document.createElement("img");
@@ -65,55 +70,60 @@ function displayProducts(){
         description.innerText = product.description;
         productCard.appendChild(description);
 
-        //Add click event to open modal with product details
-        productCard.addEventListener("click", () => openModal(index));
 
         //Append product card to the product list
         productList.appendChild(productCard);
     });
+
+    console.log("Products displayed successfully");
 }
 
 displayProducts();
 
 });
 
-const productModal= document.getElementById("product-modal");
-const modalClose=document.getElementById("modal-close");
 
-function openModal(index){
-    //Get product details 
-    const product= products[index];
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Script is running");
 
-    //Populate modal with product details 
-    document.getElementById("modal-image").src=product.image;
-    document.getElementById("modal-image").alt=product.image;
-    document.getElementById("modal-name").innerText=product.name;
-    document.getElementById("modal-price").innerText=`Price: $${product.price}`;
-    document.getElementById("modal-description").innerText=product.description;
+    const productSelect = document.getElementById("product");
+    const quantityInput = document.getElementById("quantity");
+    const totalCostSpan = document.getElementById("totalCost");
 
-    //Show the modal 
-    document.getElementById("product-modal").style.display="flex";
-}
+    console.log(productSelect);  
+    console.log(quantityInput);  
+    console.log(totalCostSpan);  
 
-function closeModal() {
-    document.getElementById("product-modal").style.display="none"
-}
+    // Now you can add event listeners and logic
+    if (productSelect && quantityInput && totalCostSpan) {
+        productSelect.addEventListener("change", updateTotalCost);
+        quantityInput.addEventListener("input", updateTotalCost);
+    } else {
+        console.log("One or more elements are not found.");
+    }
 
-//Close modal when clicking the close button
-document.getElementById("modal-close").addEventListener("click", closeModal);
+    function updateTotalCost() {
+        const productPrices = {
+            timber: 20,
+            beams: 18,
+            furniture: 12
+        };
 
-//Close modal when clicking outside the modal content 
-window.addEventListener("click" , (event)=> {
-    if (event.target===productModal) {
-        closeModal();
+        const selectedProduct = productSelect.value;
+        const quantity = parseInt(quantityInput.value) || 0;
+
+        const totalCost = productPrices[selectedProduct] * quantity;
+
+        totalCostSpan.textContent = totalCost;  // Update the total cost
     }
 });
 
-document.getElementById("orderForm").addEventListener("submit", function (e) {
+
+document.getElementById("order-form").addEventListener("submit", function (e) {
     e.preventDefault() //Prevent form submission for testing
 
-    const quantity= document.getElementById("quantity").ariaValueMax;
-    const email= document.getElementById("email").ariaValueMax;
+    const quantity= document.getElementById("quantity").value;
+    const email= document.getElementById("email").value;
 
     if(quantity <1){
         alert("Please enter a quantity of at least 1.");
@@ -127,3 +137,5 @@ document.getElementById("orderForm").addEventListener("submit", function (e) {
 
     alert("Order submitted successfully!");
 });
+
+
