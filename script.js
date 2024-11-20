@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const productSelect = document.getElementById("product");
     const quantityInput = document.getElementById("quantity");
-    const totalCostSpan = document.getElementById("totalCost");
+    const totalCostSpan = document.getElementById("totalCost"); 
 
     console.log(productSelect);  
     console.log(quantityInput);  
