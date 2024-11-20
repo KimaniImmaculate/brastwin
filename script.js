@@ -138,4 +138,59 @@ document.getElementById("order-form").addEventListener("submit", function (e) {
     alert("Order submitted successfully!");
 });
 
+//Select the order form and its input elements 
+const orderForm=document.getElementById("order-form");
+const nameInput=document.getElementById("name");
+const phoneInput=document.getElementById("phone");
+const emailInput=document.getElementById("email");
+const productSelect=document.getElementById("product");
+const quantityInput=document.getElementById("quantity");
+const notesInput=document.getElementById("notes");
+const totalCostDisplay=document.getElementById("totalCost");
+
+//Load saved form data when the page loads 
+document.addEventListener("DOMContentLoaded", () => {
+    const savedFormData = JSON.parse(localStorage.getItem("orderFormData"));
+
+    if(savedFormData){
+        nameInput.value=savedFormData.name || "";
+        phoneInput.value=savedFormData.phone || "";
+        emailInput.value=savedFormData.email || "";
+        productSelect.value=savedFormData.product || "";
+        quantityInput.value=savedFormData.quantity || "";
+        notesInput.value=savedFormData.notes|| "";
+
+    }
+});
+
+//Save form data to local storage on every input change 
+orderForm.addEventListener("input", () => {
+    const formData={
+        name: nameInput.value,
+        phone: phoneInput.value,
+        email: emailInput.value,
+        product: productSelect.value,
+        quantity: quantityInput.value,
+        notes: notesInput.value,
+    };
+
+    localStorage.setItem("orderFormData", JSON.stringify(formData)); 
+});
+
+//Clear local storage when the form is submitted 
+orderForm.addEventListener("submit", (e) => {
+    e.preventDefault(); //Prevent actual form submission for now 
+    localStorage.removeItem("orderFormData"); //Clear saved data
+    totalCostDisplay.textContent="0";
+    alert("Order submitted successfully! Local storage cleared.");
+    orderForm.reset(); //Reset the form 
+});
+
+//Clear form and local data when the clear button is clicked
+document.getElementById("clear-form").addEventListener("click", () => {
+    localStorage.removeItem("orderFormData");
+    orderForm.reset();
+    totalCostDisplay.textContent="0"
+    alert("Form cleared!");
+});
 
