@@ -124,6 +124,7 @@ document.getElementById("order-form").addEventListener("submit", function (e) {
 
     const quantity= document.getElementById("quantity").value;
     const email= document.getElementById("email").value;
+    const product=document.getElementById("product").value;
 
     if(quantity <1){
         alert("Please enter a quantity of at least 1.");
@@ -135,7 +136,8 @@ document.getElementById("order-form").addEventListener("submit", function (e) {
         return;
     }
 
-    alert("Order submitted successfully!");
+    alert(`Order placed successfully!\nEmail: ${email}\nProduct: ${product}\nQuantity: ${quantity}`);
+    orderForm.reset();
 });
 
 //Select the order form and its input elements 
