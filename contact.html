@@ -20,9 +20,32 @@
     </nav>
     <main>
         <p>Welcome! Brastwin offers quality wood products and custom cuts. Check out our products to get started!</p>
+        <section class ="contact-section">
+            <h1>Contact Us</h1>
+            <form id="contact-form">
+
+                <label for ="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+                <label for ="email">Email Address:</label>
+                <input type="text" id="email" name="email" placeholder="Your email address" required>
+
+                <label for ="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+                <label for ="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                
+                <button type="submit" class="button">Send Message</button>
+            </form>
+
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Brastwin. All rights reserved.</p>
     </footer>
+
+    <script src="contact.js"></script>
+
 </body>
 </html>
