@@ -191,6 +191,12 @@ p{
     width:100%;
     max-width: 500px;
 }
+#contact-form{
+    display: block;
+    margin: 20px auto;
+    width:100%;
+    max-width: 500px;
+}
 #product-list{
     display: block;
     flex-wrap: wrap;
@@ -237,13 +243,59 @@ p{
     padding: 0 10px;
     margin: 10px 0;
 }
-@media (max-width: 768px){
-    .product-card{
+@media (max-width: 768px) {
+    .product-card {
         width: 45%;
     }
-}
-@media (max-width: 480px){
-    .product-card{
+
+    form {
+        max-width: 100%;
+    }
+
+    header, footer {
+        padding: 10px 0;
+    }
+
+    .button {
         width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;
+    }
+
+    .small-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    header, footer {
+        padding: 8px 0;
+    }
+
+    .button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 10px;
     }
 }
