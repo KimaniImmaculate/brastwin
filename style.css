@@ -61,7 +61,7 @@ h2{
     margin: 8px auto;
     border-radius: 2px;
     height: 4px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 .button{
     background-color: #8b5e3c;
@@ -243,6 +243,22 @@ p{
     padding: 0 10px;
     margin: 10px 0;
 }
+.google-map-section {
+    position: relative;
+    width: 100%; /* Make the container width scale with the screen */
+    padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+    height: 10; /* Height is controlled by padding-bottom */
+    overflow: hidden;
+}
+
+.google-map-section iframe {
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 100%; /* Make the iframe fill the container */
+    height: 100%; /* Maintain aspect ratio */
+    border: 0; /* Remove border */
+}
 @media (max-width: 768px) {
     .product-card {
         width: 45%;
@@ -267,7 +283,12 @@ p{
     nav ul li {
         margin: 5px 0;
     }
+    #contact-form, #order-form {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
+
 
 @media (max-width: 480px) {
     .product-card {
@@ -297,5 +318,9 @@ p{
     form button {
         font-size: 14px;
         padding: 10px;
+    }
+      #contact-form, #order-form {
+        width: 100%;
+        margin: 0 auto;
     }
 }
